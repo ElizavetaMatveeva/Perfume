@@ -1,0 +1,126 @@
+html
+{
+    width: 55%;
+    background: url(../img/8.jpg) no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    margin: 0 auto;
+}
+
+body
+{
+    background-color: #ffffff;
+    padding: 2% 0% 5%;
+    font-family: "Candara", sans-serif;
+    text-align: center;
+    color: #202020;
+    cursor: default;
+    font-size: 18px;
+}
+
+h1
+{
+    margin: 5% 0% 2%;
+    font-size: 35px;
+}
+
+#introduction
+{
+    text-align: justify;  
+}
+
+p
+{
+    margin: 0% 20% 2%;
+}
+
+#m1
+{
+    margin: 0 auto;
+    display: none;
+    text-align: justify;
+}
+
+#m2
+{
+    margin: 0 auto;
+    text-align: justify;
+    display: none;
+}
+
+button
+{
+    width: 200px;
+    margin: 5% 10%; 
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #202020;
+    padding: 10px 20px;
+    font-size: 17px;
+    background-color: #a9e476;
+    font-family: "Candara", sans-serif;
+}
+
+label:hover
+{
+    cursor: pointer;
+}
+
+input
+{
+    margin-bottom: -10%;
+}
+
+input:hover
+{
+    cursor: pointer;
+}
+
+.result
+{
+    background-color : #e2e2e2;
+    cursor : default;
+    margin: 0% 38%;
+}
+
+.active
+{
+    background-color : #a9e476;
+    cursor : pointer;
+    margin: 0 38%;
+}
+
+#methods
+{
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 0%;
+}
+
+.questions
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.description
+{
+    font-size: 18px;
+    text-align: justify;
+    margin: 0 auto;
+}
+
+#home
+{
+   margin: 0% 38% 3%;
+}
+
+#error
+{
+    font-size: 16px;
+    border: 1.5px solid red;
+    margin-top: 20px;
+    padding: 10px;
+    display: none;
+}
