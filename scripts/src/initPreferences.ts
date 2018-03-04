@@ -37,7 +37,7 @@ function initCountRes(): void
         {
             const er = document.getElementById ('error') as HTMLElement;
             er.style.display = 'block';
-            er.innerHTML = 'Пожалуйста, ответьте на предложенный вопрос для получения результата';
+            er.textContent = 'Пожалуйста, ответьте на предложенный вопрос для получения результата';
         }
         event.preventDefault();
     };
@@ -47,8 +47,8 @@ function initCountRes(): void
 // Функция, записывающая в массив индексы отмеченных чекбоксов
 function findCheckedBoxes()
 {
-    let id_arr = new Array(); 
-    $('input[type = checkbox]:checked').each(  function() { id_arr.push(this.id); }  );
+    let id_arr: string[] = []; 
+    $('input[type = checkbox]:checked').each(  function() { id_arr.push((<HTMLInputElement>this).value); }  );
     return id_arr;
 }
 

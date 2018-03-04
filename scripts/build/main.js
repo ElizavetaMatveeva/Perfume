@@ -135,15 +135,15 @@ function initCountRes() {
         else {
             const er = document.getElementById('error');
             er.style.display = 'block';
-            er.innerHTML = 'Пожалуйста, ответьте на предложенный вопрос для получения результата';
+            er.textContent = 'Пожалуйста, ответьте на предложенный вопрос для получения результата';
         }
         event.preventDefault();
     };
     button.addEventListener('click', onRes);
 }
 function findCheckedBoxes() {
-    let id_arr = new Array();
-    $('input[type = checkbox]:checked').each(function () { id_arr.push(this.id); });
+    let id_arr = [];
+    $('input[type = checkbox]:checked').each(function () { id_arr.push(this.value); });
     return id_arr;
 }
 
@@ -166,12 +166,15 @@ function showRes(arr) {
         'древесные ароматы. Древесный аккорд в мужских и женских ароматах – теплое сочетание нот сандала, пачули и мха. Как правило, основу композиции древесных ароматов составляют ноты пряностей, меда, дубового мха, кедра, ветивера и амбры.'];
     const form = document.forms[1];
     form.style.display = 'none';
-    const d = document.getElementById('description');
-    d.innerHTML = 'Вам подходят ';
+    const r = document.getElementById('results');
     for (let i = 0; i < arr.length; i++) {
+        let p = document.createElement("p");
         if (i > 0)
-            d.innerHTML += '<br><br>Также Вам могут понравиться ';
-        d.innerHTML += res[arr[i]];
+            p.textContent = 'Также Вам могут понравиться ';
+        else
+            p.textContent = 'Вам подходят ';
+        p.textContent += res[arr[i]];
+        r.appendChild(p);
     }
 }
 
@@ -219,20 +222,20 @@ function initCountRes() {
         else {
             const er = document.getElementById('error');
             er.style.display = 'block';
-            er.innerHTML = 'Пожалуйста, ответьте на все предложенные вопросы для получения результата';
+            er.textContent = 'Пожалуйста, ответьте на все предложенные вопросы для получения результата';
         }
         event.preventDefault();
     };
     button.addEventListener('click', onRes);
 }
 function writeButtonsIds() {
-    let id_arr = new Array();
-    $('input[type = radio]:checked').each(function () { id_arr.push(this.id); });
+    let id_arr = [];
+    $('input[type = radio]:checked').each(function () { id_arr.push(this.value); });
     return id_arr;
 }
 function findMax(arr) {
     let counter = [0, 0, 0, 0];
-    let answer = new Array();
+    let answer = [];
     let max = 0;
     for (let i = 0; i < arr.length; i++)
         counter[arr[i] - 1]++;
@@ -262,12 +265,15 @@ function showTestRes(arr) {
         'цветочные или ориентальные («восточные») ароматы – одна из самых старых и наиболее популярных категорий в парфюмерии, в нее входят ароматы как для женщин, так и для мужчин. Парфюмерная композиция ориентальных духов строится на теплых, пряных нотах амбры, мускуса, ванили. Ориентальные ароматы обычно интенсивные и глубокие. Цветочные же ароматы строятся на нотах жасмина, пиона, розы, гардении, дуберозы – иногда в сочетании с изысканными пудровыми акцентами.'];
     const form = document.forms[0];
     form.style.display = 'none';
-    const d = document.getElementById('description');
-    d.innerHTML = 'Вам подходят ';
+    const r = document.getElementById('results');
     for (let i = 0; i < arr.length; i++) {
+        let p = document.createElement("p");
         if (i > 0)
-            d.innerHTML += '<br><br>Помимо этого, Вам могут подойти ';
-        d.innerHTML += res[arr[i]];
+            p.textContent += 'Помимо этого, Вам могут подойти ';
+        else
+            p.textContent = 'Вам подходят ';
+        p.textContent += res[arr[i]];
+        r.appendChild(p);
     }
 }
 

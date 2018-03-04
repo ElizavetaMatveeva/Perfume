@@ -40,7 +40,7 @@ function initCountRes(): void
         {
             const er = document.getElementById ('error') as HTMLElement;
             er.style.display = 'block';
-            er.innerHTML = 'Пожалуйста, ответьте на все предложенные вопросы для получения результата';
+            er.textContent = 'Пожалуйста, ответьте на все предложенные вопросы для получения результата';
         }
         event.preventDefault();
     }
@@ -50,8 +50,8 @@ function initCountRes(): void
 // Функция, записывающая ответы пользователя в массив
 function writeButtonsIds() 
 {
-    let id_arr = new Array();
-    $('input[type = radio]:checked').each(  function() { id_arr.push(this.id); }  );
+    let id_arr: string[] = [];
+    $('input[type = radio]:checked').each(  function() { id_arr.push((<HTMLInputElement>this).value); }  );
     return id_arr;
 }
 
@@ -59,13 +59,13 @@ function writeButtonsIds()
 function findMax(arr)
 {
     let counter = [0, 0, 0, 0]; // Массив счётчиков номеров ответов
-    let answer = new Array(); // Массив для номеров ответов, встречающихся максимальное кол-во раз
+    let answer: number[] = []; // Массив для номеров ответов, встречающихся максимальное кол-во раз
     let max = 0; 
-    for (let i = 0; i < arr.length; i++) // Заполняем счётчики
+    for (let i = 0; i < arr.length; i++) // Заполняем счётчики и ищем максимум
         counter[arr[i]-1]++;
-    for (let i = 0; i < counter.length; i++) // Смотрим, какой счёчик максимальный
+    for (let i = 0; i < counter.length; i++)
     {
-        if (counter[i] > max)
+        if (counter[i] > max )
             max = counter[i];
     }
     for (let i = 0; i < counter.length; i++) // Если разные ответы встречались одинаковое кол-во раз, заносим их в массив
